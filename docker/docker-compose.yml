@@ -1,2 +1,35 @@
-a
+version: '2'
+services:
+
+  mysql:
+    build: mysql
+    image: mysql.redmine:v01
+    container_name: redmine.mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: redmine_mysql_Jfslw753lfaqp092L
+      MYSQL_DATABASE: db_redmine
+    volumes:
+      - ./mysql/dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+
+
+  redmine:
+    build: redmine
+    image: redmine.socky:v01
+    container_name: socky.redmine
+    restart: always
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    environment:
+      REDMINE_DB_MYSQL: mysql
+      REDMINE_DB_PASSWORD: redmine_mysql_Jfslw753lfaqp092L
+      REDMINE_DB_DATABASE: db_redmine
+    volumes:
+      - ./redmine/datafile:/usr/src/redmine/files
 
