@@ -3,8 +3,8 @@ services:
 
   mysql:
     build: mysql
-    image: mysql.redmine:v01
-    container_name: redmine.mysql
+    image: sockyjam/mysql.redmine:v01
+    container_name: socky.mysql.redmine
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: redmine_mysql_Jfslw753lfaqp092L
@@ -19,7 +19,7 @@ services:
 
   redmine:
     build: redmine
-    image: redmine.socky:v01
+    image: sockyjam/redmine:v01
     container_name: socky.redmine
     restart: always
     ports:
