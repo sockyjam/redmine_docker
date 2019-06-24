@@ -35,4 +35,5 @@ services:
       REDMINE_DB_DATABASE: db_redmine
     volumes:
       - ./redmine/datafile:/usr/src/redmine/files
+      - ./redmine/configuration.yml:/usr/src/redmine/config/configuration.yml
 
